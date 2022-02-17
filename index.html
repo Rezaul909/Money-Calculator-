@@ -8,34 +8,31 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif&display=swap" rel="stylesheet">
-    <!-- tailwind-css link  -->
+    <!-- tailwind-css CDN  link  -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="css/style.css">
     <title>Money Calculator</title>
 </head>
 <body>
     <main>
-        <h1 class="text-6xl text-center py-10 font-bold text-sky-500">Money Calculator</h1>
+        <h1 class="text-6xl text-center py-10 font-bold text-emerald-600">Money Calculator</h1>
         <section class="mx-10 mb-20">
             <div class="grid md:grid-cols-2 gap-10 sm:grid-cols-1">
-                <!-- banner image part  -->
+                <!-- banner image part (left part) -->
                 <div class="">
                     <img class="h-full rounded-xl" src="image/save.png" alt="">
                 </div>
-                <!-- calculation part  -->
+                <!-- calculation part (right part) -->
                 <div class="bg-slate-200 pb-5 rounded-xl">
                     <!-- warning massage part  -->
                     <div class="notify-section mx-5">
                         <p id="error" class="notify text-red-600 bg-white">
-                            ❌ Invalid input, Please give a number as input and try again.
-                        </p>
-                        <p id="success" class="notify text-green-600 bg-white">
-                            ✅ Successfully calculated yor money.
+                            ❌ Invalid input, Please give a valid input and try again.
                         </p>
                     </div>
                     <!-- income part  -->
                     <div class=" ">
-                        <h2 class="text-3xl font-semibold text-center py-5 font-semibokd text-sky-400">Income</h2>
+                        <h2 class="text-3xl font-semibold text-center py-5 font-semibokd text-lime-600">Income</h2>
                         <p class="text-center text-xl font-semibold">
                             <label class="inline-block w-24 text-right">Income :</label>
                             <input id="income-input" class="py-1 px-2 rounded-lg inline-block w-1/3" class="" type="number">
@@ -43,7 +40,7 @@
                     </div>
                     <!-- expenses part  -->
                     <div class=" ">
-                        <h2 class="text-3xl font-semibold text-center py-5 font-semibokd text-sky-400">Expenses</h2>
+                        <h2 class="text-3xl font-semibold text-center py-5 font-semibokd text-red-400">Expenses</h2>
                         <p class="text-center text-xl font-semibold py-2">
                             <label class="inline-block w-24 text-right">Food :</label>
                             <input id="food-input" class="py-1 px-2 rounded-lg inline-block w-1/3" type="number">
@@ -59,11 +56,18 @@
                         <p class="text-center text-xl text-white font-semibold">
                             <button id="calculate-btn" class="bg-blue-500 px-20 py-3 rounded-lg m-5 font-bold type="submit">Calculate</button>
                         </p>
+                        <!-- error massage  -->
+                        <div class="notify-section mx-5">
+                            <p id="error-expense" class="notify text-red-600 bg-white">
+                                ❌ You can't expense more than of your income.
+                            </p>
+                        </div>
                         <h2 class="text-2xl font-semibold text-center py-5 font-semibokd ">
                             Total Expenses: $
                             <span id="total-expenses">00</span>
                         </h2>
-                        <h2 class="text-2xl font-semibold text-center py-5 font-semibokd ">Balance: $
+                        <h2 class="text-2xl font-semibold text-center py-5 font-semibokd ">
+                            Balance: $
                             <span id="balance">00</span>
                         </h2>
                     </div>
@@ -74,6 +78,12 @@
                             &nbsp; %
                             <button id="save-btn" class="bg-blue-500 px-16 py-2 text-white rounded-lg m-5 font-bold" type="submit">Save</button>
                         </p>
+                        <!-- error massage  -->
+                        <div class="notify-section mx-5">
+                            <p id="error-save" class="notify text-red-600 bg-white">
+                                ❌ You can't save more than of your available balance.
+                            </p>
+                        </div>
                         <h2 class="text-2xl font-semibold text-center py-5 font-semibokd ">
                             Saving Amount: $
                             <span id="saving-amount">00</span>
@@ -82,6 +92,12 @@
                             Remaining Balance: $
                             <span id="remaining-balance">00</span>
                         </h2>
+                        <!-- Success massage  -->
+                        <div class="notify-section mx-5">
+                            <p id="success" class="notify text-green-600 bg-white">
+                                ✅ Successfully calculated yor money.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
