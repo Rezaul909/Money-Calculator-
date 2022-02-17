@@ -4,57 +4,82 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- google fonts link  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif&display=swap" rel="stylesheet">
     <!-- tailwind-css link  -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css">
     <title>Money Calculator</title>
 </head>
 <body>
     <main>
         <h1 class="text-6xl text-center py-10 font-bold text-sky-500">Money Calculator</h1>
         <section class="mx-10 mb-20">
-            <div class="grid grid-cols-2 gap-10">
+            <div class="grid md:grid-cols-2 gap-10 sm:grid-cols-1">
+                <!-- banner image part  -->
                 <div class="">
-                    <img class="h-full rounded-xl" src="image/money-master.jpg" alt="">
+                    <img class="h-full rounded-xl" src="image/save.png" alt="">
                 </div>
+                <!-- calculation part  -->
                 <div class="bg-slate-200 pb-5 rounded-xl">
-                    <div class=" ">
-                        <h2 class="text-2xl font-semibold text-center py-5 font-semibokd ">Income</h2>
-                        <p class="text-center text-xl font-semibold">Income :
-                            <input id="income-input" class="py-1 px-2 rounded-lg" class="" type="text">
+                    <!-- warning massage part  -->
+                    <div class="notify-section mx-5">
+                        <p id="error" class="notify text-red-600 bg-white">
+                            ❌ Invalid input, Please give a number as input and try again.
+                        </p>
+                        <p id="success" class="notify text-green-600 bg-white">
+                            ✅ Successfully calculated yor money.
                         </p>
                     </div>
+                    <!-- income part  -->
                     <div class=" ">
-                        <h2 class="text-2xl font-semibold text-center py-5 font-semibokd ">Expenses</h2>
-                        <p class="text-center text-xl font-semibold py-2">Food :
-                            <input id="food-input" class="py-1 px-2 rounded-lg" type="text">
-                        </p>
-                        <p class="text-center text-xl font-semibold py-2">Rent :
-                            <input id="rent-input" class="py-1 px-2 rounded-lg" type="text">
-                        </p>
-                        <p class="text-center text-xl font-semibold py-2">Clothes :
-                            <input id="cloth-input" class="py-1 px-2 rounded-lg" type="text">
-                        </p>
+                        <h2 class="text-3xl font-semibold text-center py-5 font-semibokd text-sky-400">Income</h2>
                         <p class="text-center text-xl font-semibold">
-                            <button id="calculate-btn" class="bg-cyan-400 px-20 py-3 rounded-lg m-5 font-bold type="submit">Calculate</button>
+                            <label class="inline-block w-24 text-right">Income :</label>
+                            <input id="income-input" class="py-1 px-2 rounded-lg inline-block w-1/3" class="" type="number">
                         </p>
-
-                        <h2 class="text-2xl font-semibold text-center py-5 font-semibokd ">Total Expenses: 
+                    </div>
+                    <!-- expenses part  -->
+                    <div class=" ">
+                        <h2 class="text-3xl font-semibold text-center py-5 font-semibokd text-sky-400">Expenses</h2>
+                        <p class="text-center text-xl font-semibold py-2">
+                            <label class="inline-block w-24 text-right">Food :</label>
+                            <input id="food-input" class="py-1 px-2 rounded-lg inline-block w-1/3" type="number">
+                        </p>
+                        <p class="text-center text-xl font-semibold py-2">
+                            <label class="inline-block w-24 text-right">Rent :</label>
+                            <input id="rent-input" class="py-1 px-2 rounded-lg inline-block w-1/3" type="number">
+                        </p>
+                        <p class="text-center text-xl font-semibold py-2">
+                            <label class="inline-block w-24 text-right">Clothes :</label>
+                            <input id="cloth-input" class="py-1 px-2 rounded-lg inline-block w-1/3" type="number">
+                        </p>
+                        <p class="text-center text-xl text-white font-semibold">
+                            <button id="calculate-btn" class="bg-blue-500 px-20 py-3 rounded-lg m-5 font-bold type="submit">Calculate</button>
+                        </p>
+                        <h2 class="text-2xl font-semibold text-center py-5 font-semibokd ">
+                            Total Expenses: $
                             <span id="total-expenses">00</span>
                         </h2>
-                        <h2 class="text-2xl font-semibold text-center py-5 font-semibokd ">Balance: 
+                        <h2 class="text-2xl font-semibold text-center py-5 font-semibokd ">Balance: $
                             <span id="balance">00</span>
                         </h2>
                     </div>
+                    <!-- savings amount part  -->
                     <div>
                         <p class="text-center text-xl font-semibold">Save: 
-                            <input id="percent-input" class="py-1 px-2 rounded-lg" type="text">
-                              %
-                            <button id="save-btn" class="bg-cyan-400 px-16 py-2 rounded-lg m-5 font-bold" type="submit">Save</button>
+                            <input id="percent-input" class="py-1 px-2 rounded-lg inline-block w-1/5" type="number">
+                            &nbsp; %
+                            <button id="save-btn" class="bg-blue-500 px-16 py-2 text-white rounded-lg m-5 font-bold" type="submit">Save</button>
                         </p>
-                        <h2 class="text-2xl font-semibold text-center py-5 font-semibokd ">Saving Amount: 
+                        <h2 class="text-2xl font-semibold text-center py-5 font-semibokd ">
+                            Saving Amount: $
                             <span id="saving-amount">00</span>
                         </h2>
-                        <h2 class="text-2xl font-semibold text-center py-5 font-semibokd ">Remaining Balance: 
+                        <h2 class="text-2xl font-semibold text-center py-5 font-semibokd ">
+                            Remaining Balance: $
                             <span id="remaining-balance">00</span>
                         </h2>
                     </div>
@@ -62,6 +87,7 @@
             </div>
         </section>
     </main>
+    <!-- js link  -->
     <script src="js/script.js"></script>
 </body>
 </html>

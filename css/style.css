@@ -1,0 +1,13 @@
+body{
+    font-family: 'Roboto Serif', sans-serif;
+};
+.notify-section{
+    margin: 0 auto;
+}
+.notify{
+    display:none;
+    margin-top: 20px;
+    border-radius: 15px;
+    text-align:center;
+    padding: 5px 20px;
+}
